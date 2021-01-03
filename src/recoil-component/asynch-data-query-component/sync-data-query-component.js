@@ -5,14 +5,13 @@ import {
     selectorFamily,
     useRecoilValue,
 } from 'recoil';
-import {sleep} from "../../utils/utils";
 
 const currentUserIDState = atom({
     key: 'CurrentUserID',
     default: 1,
 });
 
-function myDBQuery({userID: userID}) {
+function myDBQuery({userID}) {
     return {
         1: {
             id: 1,

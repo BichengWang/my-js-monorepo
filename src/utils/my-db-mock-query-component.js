@@ -18,7 +18,7 @@ let user3 = {
     friendList: [1, 2],
 }
 
-export async function myDBQuery({userID: userID}) {
+export async function myDBQuery({userID}) {
     await sleep(3000);
     console.log("query id record: ", userID)
     const result = {
