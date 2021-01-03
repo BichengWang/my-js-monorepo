@@ -1,6 +1,6 @@
 /* eslint-env node */
 module.exports = {
-  extends: [require.resolve("eslint-config-fusion")],
+  extends: [],
   plugins: [
     "react-hooks",
     "sort-imports-es6-autofix",
@@ -8,6 +8,7 @@ module.exports = {
     "sort-keys-fix",
   ],
   rules: {
+    "no-unused-vars": "off",
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     "react/jsx-sort-props": "error", // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md

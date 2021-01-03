@@ -13,6 +13,7 @@ import ConcurrentRequestUserInfo from './recoil-component/user-data-query-compon
 import DataFlowUserInfo from './recoil-component/user-data-query-component/data-flow-graph-component';
 import logo from './logo.svg';
 import PrefetchRequestUserInfo from './recoil-component/user-data-query-component/pre-fetching-query-component';
+import QueryRefreshUserInfo from './recoil-component/user-data-query-component/query-refresh-component';
 import React, {Suspense} from 'react';
 import TodoList from './recoil-component/todo-list-component/todo-list-component';
 
@@ -41,9 +42,9 @@ function App() {
       <TodoList />
       <Suspense fallback={<div>Loading...</div>}>
         <ul>
-          <li key={'AsyncUserInfo'}>
-            <AsyncUserInfo userID={1} />
-          </li>
+          {/*<li key={'AsyncUserInfo'}>*/}
+          {/*  <AsyncUserInfo userID={1} />*/}
+          {/*</li>*/}
           {/*<li key="DataFlowUserInfo">*/}
           {/*  <DataFlowUserInfo userID={1} />*/}
           {/*</li>*/}
@@ -53,6 +54,9 @@ function App() {
           {/*<li key="PrefetchRequestUserInfo">*/}
           {/*    <PrefetchRequestUserInfo userID={1}/>*/}
           {/*</li>*/}
+          <li key={'QueryRefreshUserInfo'}>
+            <QueryRefreshUserInfo />
+          </li>
         </ul>
       </Suspense>
     </RecoilRoot>

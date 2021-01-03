@@ -1,5 +1,11 @@
 // @flow
-import {atom, selector, selectorFamily, useRecoilValue, useRecoilValueLoadable} from 'recoil';
+import {
+  atom,
+  selector,
+  selectorFamily,
+  useRecoilValue,
+  useRecoilValueLoadable,
+} from 'recoil';
 import {myDBQuery} from '../../utils/my-db-mock-query-component';
 import {sleep} from '../../utils/utils';
 import React from 'react';
