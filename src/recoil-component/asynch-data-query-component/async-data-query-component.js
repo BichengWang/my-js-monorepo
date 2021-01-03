@@ -1,50 +1,46 @@
+// @flow
+import {atom, selector, selectorFamily, useRecoilValue} from 'recoil';
+import {myDBQuery} from '../../utils/my-db-mock-query-component';
+import {sleep} from '../../utils/utils';
 import React from 'react';
-import {
-    atom,
-    selector,
-    selectorFamily,
-    useRecoilValue,
-} from 'recoil';
-import {sleep} from "../../utils/utils";
-import {myDBQuery} from "../../utils/my-db-mock-query-component";
 
 const currentUserIDState = atom({
-    key: 'CurrentUserID',
-    default: 1,
+  default: 1,
+  key: 'CurrentUserID',
 });
 
 const currentUserNameQuery = selector({
-    key: 'CurrentUserName',
-    get: async ({get}) => {
-        const response = await myDBQuery({
-            userID: get(currentUserIDState),
-        });
-        if (response.error) {
-            throw response.error;
-        }
-        return response.name;
-    },
+  get: async ({get}) => {
+    const response = await myDBQuery({
+      userID: get(currentUserIDState),
+    });
+    if (response.error) {
+      throw response.error;
+    }
+    return response.name;
+  },
+  key: 'CurrentUserName',
 });
 
 const userNameQuery = selectorFamily({
-    key: 'UserName',
-    get: userID => async () => {
-        const response = await myDBQuery({userID});
-        if (response.error) {
-            throw response.error;
-        }
-        return response.name;
-    },
+  get: (userID) => async () => {
+    const response = await myDBQuery({userID});
+    if (response.error) {
+      throw response.error;
+    }
+    return response.name;
+  },
+  key: 'UserName',
 });
 
 function UserInfo({userID}) {
-    const userName = useRecoilValue(userNameQuery(userID));
-    return <div>{userName}</div>;
+  const userName = useRecoilValue(userNameQuery(userID));
+  return <div>{userName}</div>;
 }
 
 const AsyncUserInfo = ({userID}) => {
-    const userName = useRecoilValue(userNameQuery(userID));
-    return <div>{userName}</div>;
-}
+  const userName = useRecoilValue(userNameQuery(userID));
+  return <div>{userName}</div>;
+};
 
 export default AsyncUserInfo;

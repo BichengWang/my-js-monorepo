@@ -1,200 +1,202 @@
-import React from 'react';
+// @flow
 import {
-    RecoilRoot,
-    atom,
-    selector,
-    useRecoilState,
-    useRecoilValue, useSetRecoilState,
+  atom,
+  RecoilRoot,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+  useSetRecoilState,
 } from 'recoil';
-import {useState} from "react";
+import React, {useState} from 'react';
 
 const todoListState = atom({
-    key: 'todoListState',
-    default: [],
+  default: [],
+  key: 'todoListState',
 });
 
 const idNumState = atom({
-    key: 'idNumState',
-    default: 0,
+  default: 0,
+  key: 'idNumState',
 });
 
 const todoListFilterState = atom({
-    key: 'todoListFilterState',
-    default: 'Show All',
+  default: 'Show All',
+  key: 'todoListFilterState',
 });
 
 const filteredTodoListState = selector({
-    key: 'filteredTodoListState',
-    get: ({get}) => {
-        const filter = get(todoListFilterState);
-        const list = get(todoListState);
+  get: ({get}) => {
+    const filter = get(todoListFilterState);
+    const list = get(todoListState);
 
-        switch (filter) {
-            case 'Completed':
-                return list.filter((item) => item.isComplete);
-            case 'Uncompleted':
-                return list.filter((item) => !item.isComplete);
-            case 'All':
-                return list;
-            case 'None':
-                return [];
-            default:
-                return list;
-        }
-    },
+    switch (filter) {
+      case 'Completed':
+        return list.filter((item) => item.isComplete);
+      case 'Uncompleted':
+        return list.filter((item) => !item.isComplete);
+      case 'All':
+        return list;
+      case 'None':
+        return [];
+      default:
+        return list;
+    }
+  },
+  key: 'filteredTodoListState',
 });
 
 const todoListStatsState = selector({
-    key: 'todoListStatsState',
-    get: ({get}) => {
-        const todoList = get(todoListState);
-        const totalNum = todoList.length;
-        const totalCompletedNum = todoList.filter((item) => item.isComplete).length;
-        const totalUncompletedNum = totalNum - totalCompletedNum;
-        const percentCompleted = totalNum === 0 ? 0 : totalCompletedNum / totalNum * 100;
+  get: ({get}) => {
+    const todoList = get(todoListState);
+    const totalNum = todoList.length;
+    const totalCompletedNum = todoList.filter((item) => item.isComplete).length;
+    const totalUncompletedNum = totalNum - totalCompletedNum;
+    const percentCompleted =
+      totalNum === 0 ? 0 : (totalCompletedNum / totalNum) * 100;
 
-        return {
-            totalNum,
-            totalCompletedNum,
-            totalUncompletedNum,
-            percentCompleted,
-        };
-    },
+    return {
+      percentCompleted,
+      totalCompletedNum,
+      totalNum,
+      totalUncompletedNum,
+    };
+  },
+  key: 'todoListStatsState',
 });
 
 function TodoItemCreator() {
-    const [inputValue, setInputValue] = useState('');
-    const [idNum, setIdNumState] = useRecoilState(idNumState);
-    const setTodoList = useSetRecoilState(todoListState);
+  const [inputValue, setInputValue] = useState('');
+  const [idNum, setIdNumState] = useRecoilState(idNumState);
+  const setTodoList = useSetRecoilState(todoListState);
 
-    const addItem = () => {
-        setTodoList((oldTodoList) => [
-            ...oldTodoList,
-            {
-                id: idNum,
-                text: inputValue,
-                isComplete: false,
-            },
-        ]);
-        setIdNumState((oldIdNum) => oldIdNum + 1);
-        setInputValue('');
-    };
+  const addItem = () => {
+    setTodoList((oldTodoList) => [
+      ...oldTodoList,
+      {
+        id: idNum,
+        isComplete: false,
+        text: inputValue,
+      },
+    ]);
+    setIdNumState((oldIdNum) => oldIdNum + 1);
+    setInputValue('');
+  };
 
-    const onChange = ({target: {value}}) => {
-        setInputValue(value);
-    };
+  const onChange = ({target: {value}}) => {
+    setInputValue(value);
+  };
 
-    return (
-        <div>
-            <input type="text" value={inputValue} onChange={onChange} />
-            <button onClick={addItem}>Add</button>
-        </div>
-    );
+  return (
+    <div>
+      <input onChange={onChange} type="text" value={inputValue} />
+      <button onClick={addItem}>Add</button>
+    </div>
+  );
 }
 
 function TodoItem({item}) {
-    const [todoList, setTodoList] = useRecoilState(todoListState);
-    const [idNumSt, setIdNumSt] = useRecoilState(idNumState);
-    const index = todoList.findIndex((listItem) => listItem === item);
+  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const [idNumSt, setIdNumSt] = useRecoilState(idNumState);
+  const index = todoList.findIndex((listItem) => listItem === item);
 
-    const editItemText = ({target: {value}}) => {
-        const newList = replaceItemAtIndex(todoList, index, {
-            ...item,
-            text: value,
-        });
+  const editItemText = ({target: {value}}) => {
+    const newList = replaceItemAtIndex(todoList, index, {
+      ...item,
+      text: value,
+    });
 
-        setTodoList(newList);
-    };
+    setTodoList(newList);
+  };
 
-    const toggleItemCompletion = () => {
-        const newList = replaceItemAtIndex(todoList, index, {
-            ...item,
-            isComplete: !item.isComplete,
-        });
+  const toggleItemCompletion = () => {
+    const newList = replaceItemAtIndex(todoList, index, {
+      ...item,
+      isComplete: !item.isComplete,
+    });
 
-        setTodoList(newList);
-    };
+    setTodoList(newList);
+  };
 
-    const deleteItem = () => {
-        const newList = removeItemAtIndex(todoList, index);
+  const deleteItem = () => {
+    const newList = removeItemAtIndex(todoList, index);
 
-        setTodoList(newList);
-    };
+    setTodoList(newList);
+  };
 
-    return (
-        <div>
-            <input type="text" value={item.text} onChange={editItemText} />
-            <input
-                type="checkbox"
-                checked={item.isComplete}
-                onChange={toggleItemCompletion}
-            />
-            <button onClick={deleteItem}>X</button>
-        </div>
-    );
+  return (
+    <div>
+      <input onChange={editItemText} type="text" value={item.text} />
+      <input
+        checked={item.isComplete}
+        onChange={toggleItemCompletion}
+        type="checkbox"
+      />
+      <button onClick={deleteItem}>X</button>
+    </div>
+  );
 }
 
 function replaceItemAtIndex(arr, index, newValue) {
-    return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
+  return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
 }
 
 function removeItemAtIndex(arr, index) {
-    return [...arr.slice(0, index), ...arr.slice(index + 1)];
+  return [...arr.slice(0, index), ...arr.slice(index + 1)];
 }
 
 function TodoListStats() {
-    const {
-        totalNum,
-        totalCompletedNum,
-        totalUncompletedNum,
-        percentCompleted,
-    } = useRecoilValue(todoListStatsState);
+  const {
+    totalNum,
+    totalCompletedNum,
+    totalUncompletedNum,
+    percentCompleted,
+  } = useRecoilValue(todoListStatsState);
 
-    const formattedPercentCompleted = Math.round(percentCompleted);
+  const formattedPercentCompleted = Math.round(percentCompleted);
 
-    return (
-        <ul>
-            <li>Total items: {totalNum}</li>
-            <li>Items completed: {totalCompletedNum}</li>
-            <li>Items not completed: {totalUncompletedNum}</li>
-            <li>Percent completed: {formattedPercentCompleted}</li>
-        </ul>
-    );
+  return (
+    <ul>
+      <li>Total items: {totalNum}</li>
+      <li>Items completed: {totalCompletedNum}</li>
+      <li>Items not completed: {totalUncompletedNum}</li>
+      <li>Percent completed: {formattedPercentCompleted}</li>
+    </ul>
+  );
 }
 
 function TodoListFilters() {
-    const [filter, setFilter] = useRecoilState(todoListFilterState);
+  const [filter, setFilter] = useRecoilState(todoListFilterState);
 
-    const updateFilter = ({target: {value}}) => {
-        setFilter(value);
-    };
+  const updateFilter = ({target: {value}}) => {
+    setFilter(value);
+  };
 
-    return (
-        <>
-            Filter:
-            <select value={filter} onChange={updateFilter}>
-                <option value="All">All</option>
-                <option value="Completed">Completed</option>
-                <option value="Uncompleted">Uncompleted</option>
-            </select>
-        </>
-    );
+  return (
+    <>
+      Filter:
+      <select onChange={updateFilter} value={filter}>
+        <option value="All">All</option>
+        <option value="Completed">Completed</option>
+        <option value="Uncompleted">Uncompleted</option>
+      </select>
+    </>
+  );
 }
 
 const TodoList = () => {
-    const filteredTodoList = useRecoilValue(filteredTodoListState);
+  const filteredTodoList = useRecoilValue(filteredTodoListState);
 
-    return (
-        <div>
-            <TodoListStats />
-            <TodoListFilters />
-            <TodoItemCreator/>
+  return (
+    <div>
+      <TodoListStats />
+      <TodoListFilters />
+      <TodoItemCreator />
 
-            {filteredTodoList.map((todoItem) => (
-                <TodoItem key={todoItem.id} item={todoItem} />
-            ))}
-        </div>
-    );
-}
+      {filteredTodoList.map((todoItem) => (
+        <TodoItem item={todoItem} key={todoItem.id} />
+      ))}
+    </div>
+  );
+};
 
 export default TodoList;

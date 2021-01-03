@@ -1,14 +1,15 @@
-import React from 'react';
-import {
-    RecoilRoot,
-    atom,
-    selector,
-    useRecoilState,
-    useRecoilValue,
-} from 'recoil';
-import ReactDOM from 'react-dom';
+// @flow
 import './index.css';
+import {
+  atom,
+  RecoilRoot,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

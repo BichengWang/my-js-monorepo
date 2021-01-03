@@ -8,6 +8,17 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "babel-eslint": "^10.1.0",
+    "eslint-config-fusion": "^6.2.2",
+    "eslint-plugin-cup": "^2.0.3",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -18,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src --fix",
+    "format": "prettier-eslint --eslint-config-path .eslintrc.js --write $PWD/'src/**/*.js'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,6 +55,8 @@
     "@typescript-eslint/parser": "^4.11.1",
     "eslint": "^7.17.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-react": "^7.22.0"
+    "eslint-plugin-react": "^7.22.0",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.0"
   }
 }

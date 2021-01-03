@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3dbd4b-0750-43e2-9da2-95ca94276102" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/async-data-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/async-data-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/concurrent-request-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/concurrent-request-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/data-flow-graph-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/data-flow-graph-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/pre-fetching-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/pre-fetching-query-component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/sync-data-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component/sync-data-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/character-couter-component/character-counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/character-couter-component/character-counter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/todo-list-component/todo-list-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/todo-list-component/todo-list-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +62,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/recoil-component/asynch-data-query-component" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -64,7 +80,7 @@
       <updated>1609641791386</updated>
       <workItem from="1609641793211" duration="10838000" />
       <workItem from="1609656440779" duration="590000" />
-      <workItem from="1609698770662" duration="912000" />
+      <workItem from="1609698770662" duration="2937000" />
     </task>
     <servers />
   </component>
