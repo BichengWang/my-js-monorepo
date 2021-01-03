@@ -29,7 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src --fix",
-    "format": "prettier-eslint --eslint-config-path .eslintrc.js --write $PWD/'src/**/*.js'",
+    "format": "prettier-eslint --eslint-config-path .eslintrc.js --write $PWD/'src/**/*.{js,ts,css,tsx}'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
