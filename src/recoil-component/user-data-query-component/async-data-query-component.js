@@ -1,5 +1,5 @@
 // @flow
-import {atom, selector, selectorFamily, useRecoilValue} from 'recoil';
+import {atom, selector, selectorFamily, useRecoilValue, useRecoilValueLoadable} from 'recoil';
 import {myDBQuery} from '../../utils/my-db-mock-query-component';
 import {sleep} from '../../utils/utils';
 import React from 'react';
@@ -39,8 +39,16 @@ function UserInfo({userID}) {
 }
 
 const AsyncUserInfo = ({userID}) => {
-  const userName = useRecoilValue(userNameQuery(userID));
-  return <div>{userName}</div>;
+  // with loading states
+  const userNameLoadable = useRecoilValueLoadable(userNameQuery(userID));
+  switch (userNameLoadable.state) {
+    case 'hasValue':
+      return <div>{userNameLoadable.contents}</div>;
+    case 'loading':
+      return <div>Loading...</div>;
+    case 'hasError':
+      throw userNameLoadable.contents;
+  }
 };
 
 export default AsyncUserInfo;
