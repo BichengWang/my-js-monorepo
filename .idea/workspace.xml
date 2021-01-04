@@ -2,12 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3dbd4b-0750-43e2-9da2-95ca94276102" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/query-refresh-component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/Cart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/CartButtons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/Catalog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/shopping-cart-demo-component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/atoms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/hooks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/selectors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/character-couter-component/character-counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/character-couter-component/character-counter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/todo-list-component/todo-list-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/todo-list-component/todo-list-component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/async-data-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/async-data-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/concurrent-request-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/concurrent-request-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/data-flow-graph-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/data-flow-graph-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/pre-fetching-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/pre-fetching-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/query-refresh-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/query-refresh-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/sync-data-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/sync-data-query-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +89,8 @@
       <updated>1609641791386</updated>
       <workItem from="1609641793211" duration="10838000" />
       <workItem from="1609656440779" duration="590000" />
-      <workItem from="1609698770662" duration="9096000" />
+      <workItem from="1609698770662" duration="9971000" />
+      <workItem from="1609716869354" duration="2492000" />
     </task>
     <servers />
   </component>
