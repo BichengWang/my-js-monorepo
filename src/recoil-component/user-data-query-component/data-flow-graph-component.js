@@ -3,45 +3,44 @@ import {
   atom,
   selector,
   selectorFamily,
+  useRecoilState,
   useRecoilValue,
   useSetRecoilState,
-  waitForAll,
-} from 'recoil';
-import {myDBQuery} from '../../utils/my-db-mock-query-component';
-import React from 'react';
+} from "recoil";
+import { myDBQuery } from "../../utils/my-db-mock-query-component";
+import React from "react";
 
 const currentUserIDState = atom({
   default: 1,
-  key: 'CurrentUserID',
+  key: "CurrentUserID",
 });
 
 const userInfoQuery = selectorFamily({
   get: (userID) => async () => {
-    const response = await myDBQuery({userID});
+    const response = await myDBQuery({ userID });
     if (response.error) {
       throw response.error;
     }
     return response;
   },
-  key: 'UserInfoQuery',
+  key: "UserInfoQuery",
 });
 
 const currentUserInfoQuery = selector({
-  get: ({get}) => get(userInfoQuery(get(currentUserIDState))),
-  key: 'CurrentUserInfoQuery',
+  get: ({ get }) => get(userInfoQuery(get(currentUserIDState))),
+  key: "CurrentUserInfoQuery",
 });
 
 const friendsInfoQuery = selector({
-  get: ({get}) => {
-    const {friendList} = get(currentUserInfoQuery);
-    return get(
-      waitForAll(friendList.map((friendID) => userInfoQuery(friendID)))
-    );
+  get: ({ get }) => {
+    const response = get(currentUserInfoQuery);
+    const { friendList } = response;
+    return friendList.map((friendID) => get(userInfoQuery(friendID)));
   },
-  key: 'FriendsInfoQuery',
+  key: "FriendsInfoQuery",
 });
 
-const ConcurrentRequestUserInfo = () => {
+const DataFlowUserInfo = () => {
   const currentUser = useRecoilValue(currentUserInfoQuery);
   const friends = useRecoilValue(friendsInfoQuery);
   const setCurrentUserID = useSetRecoilState(currentUserIDState);
@@ -61,4 +60,4 @@ const ConcurrentRequestUserInfo = () => {
   );
 };
 
-export default ConcurrentRequestUserInfo;
+export default DataFlowUserInfo;

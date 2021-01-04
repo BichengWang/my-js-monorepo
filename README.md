@@ -12,3 +12,8 @@ pruning origin deleted branches
 ```
 git remote prune origin
 ```
+### Others
+```
+npm i --save-dev eslint-plugin-sort-imports-es6-autofix
+
+```

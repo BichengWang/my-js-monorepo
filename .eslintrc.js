@@ -1,13 +1,27 @@
 /* eslint-env node */
 module.exports = {
-  extends: [require.resolve("eslint-config-fusion")],
+  extends: ["eslint:recommended", "plugin:react/recommended"],
+  globals: {
+
+  },
   plugins: [
+    "import",
     "react-hooks",
     "sort-imports-es6-autofix",
     "react",
     "sort-keys-fix",
   ],
+  parser: "babel-eslint",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: "module",
+  },
   rules: {
+    "react/prop-types": "off",
+    "no-unused-vars": "off",
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     "react/jsx-sort-props": "error", // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
@@ -26,8 +40,16 @@ module.exports = {
       }
     ]
   },
+  settings: {
+    react: {
+      version: "latest",
+    }
+  },
   env: {
-    "browser": true,
-    "node": true
+    browser: true,
+    node: true,
+    commonjs: true,
+    es6: true,
+    jest: true,
   }
 };

@@ -6,47 +6,47 @@ import {
   useRecoilState,
   useRecoilValue,
   useSetRecoilState,
-} from 'recoil';
-import React, {useState} from 'react';
+} from "recoil";
+import React, { useState } from "react";
 
 const todoListState = atom({
   default: [],
-  key: 'todoListState',
+  key: "todoListState",
 });
 
 const idNumState = atom({
   default: 0,
-  key: 'idNumState',
+  key: "idNumState",
 });
 
 const todoListFilterState = atom({
-  default: 'Show All',
-  key: 'todoListFilterState',
+  default: "Show All",
+  key: "todoListFilterState",
 });
 
 const filteredTodoListState = selector({
-  get: ({get}) => {
+  get: ({ get }) => {
     const filter = get(todoListFilterState);
     const list = get(todoListState);
 
     switch (filter) {
-      case 'Completed':
+      case "Completed":
         return list.filter((item) => item.isComplete);
-      case 'Uncompleted':
+      case "Uncompleted":
         return list.filter((item) => !item.isComplete);
-      case 'All':
+      case "All":
         return list;
-      case 'None':
+      case "None":
         return [];
       default:
         return list;
     }
   },
-  key: 'filteredTodoListState',
+  key: "filteredTodoListState",
 });
 
 const todoListStatsState = selector({
-  get: ({get}) => {
+  get: ({ get }) => {
     const todoList = get(todoListState);
     const totalNum = todoList.length;
     const totalCompletedNum = todoList.filter((item) => item.isComplete).length;
@@ -61,11 +61,11 @@ const todoListStatsState = selector({
       totalUncompletedNum,
     };
   },
-  key: 'todoListStatsState',
+  key: "todoListStatsState",
 });
 
 function TodoItemCreator() {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [idNum, setIdNumState] = useRecoilState(idNumState);
   const setTodoList = useSetRecoilState(todoListState);
 
@@ -79,10 +79,10 @@ function TodoItemCreator() {
       },
     ]);
     setIdNumState((oldIdNum) => oldIdNum + 1);
-    setInputValue('');
+    setInputValue("");
   };
 
-  const onChange = ({target: {value}}) => {
+  const onChange = ({ target: { value } }) => {
     setInputValue(value);
   };
 
@@ -94,12 +94,12 @@ function TodoItemCreator() {
   );
 }
 
-function TodoItem({item}) {
+function TodoItem({ item }) {
   const [todoList, setTodoList] = useRecoilState(todoListState);
   const [idNumSt, setIdNumSt] = useRecoilState(idNumState);
   const index = todoList.findIndex((listItem) => listItem === item);
 
-  const editItemText = ({target: {value}}) => {
+  const editItemText = ({ target: { value } }) => {
     const newList = replaceItemAtIndex(todoList, index, {
       ...item,
       text: value,
@@ -167,7 +167,7 @@ function TodoListStats() {
 function TodoListFilters() {
   const [filter, setFilter] = useRecoilState(todoListFilterState);
 
-  const updateFilter = ({target: {value}}) => {
+  const updateFilter = ({ target: { value } }) => {
     setFilter(value);
   };
 
