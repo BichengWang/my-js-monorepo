@@ -26,6 +26,22 @@ export async function myDBQuery({ userID }) {
     1: user1,
     2: user2,
     3: user3,
+    node1: {
+      records: [
+        {
+          id: 0,
+          value: "row0 record",
+        },
+        {
+          id: 1,
+          value: "row1 record",
+        },
+        {
+          id: 2,
+          value: "row2 record",
+        },
+      ],
+    },
   }[userID];
   setTimeout(updateUser, 3000);
   return result;

@@ -1,5 +1,5 @@
 // @flow
-import { cart } from "./atoms";
+import { cart, node } from "./atoms";
 import { useRecoilState } from "recoil";
 
 const cloneIndex = (items, id) => ({
@@ -38,5 +38,15 @@ export const useDecreaseItem = () => {
       clone[index].qty -= 1;
       setItems(clone);
     }
+  };
+};
+
+export const useAddRecord = () => {
+  const [table, setTable] = useRecoilState(node);
+  return (newRecord) => {
+    table.records.push(newRecord);
+    setTable({
+      ...table,
+    });
   };
 };

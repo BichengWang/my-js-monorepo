@@ -1,4 +1,9 @@
 // @flow
 export { cart } from "./atoms";
-export { cartState } from "./selectors";
-export { useAddItem, useDecreaseItem, useRemoveItem } from "./hooks";
+export { cartState, nodeInfoQuery } from "./selectors";
+export {
+  useAddItem,
+  useDecreaseItem,
+  useRemoveItem,
+  useAddRecord,
+} from "./hooks";

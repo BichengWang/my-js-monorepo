@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3dbd4b-0750-43e2-9da2-95ca94276102" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/Catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/Catalog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/atoms.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/atoms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/hooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/hooks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +69,7 @@
       <workItem from="1609641793211" duration="10838000" />
       <workItem from="1609656440779" duration="590000" />
       <workItem from="1609698770662" duration="9971000" />
-      <workItem from="1609716869354" duration="2887000" />
+      <workItem from="1609716869354" duration="15493000" />
     </task>
     <servers />
   </component>
