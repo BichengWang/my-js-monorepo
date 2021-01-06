@@ -44,17 +44,26 @@ function UserInfo({ userID }) {
   return <div>{userName}</div>;
 }
 
-const AsyncUserInfo = ({ userID }) => {
+const AsyncUserInfoHelper = () => {
   // with loading states
-  const userNameLoadable = useRecoilValueLoadable(userNameQuery(userID));
-  switch (userNameLoadable.state) {
-    case "hasValue":
-      return <div>{userNameLoadable.contents}</div>;
-    case "loading":
-      return <div>Loading...</div>;
-    case "hasError":
-      throw userNameLoadable.contents;
-  }
+  const userID = useRecoilValue(currentUserIDState);
+  const userNameLoadable = useRecoilValue(userNameQuery(userID));
+  // switch (userNameLoadable.state) {
+  //   case "hasValue":
+  return <div>{userNameLoadable}</div>;
+  // case "loading":
+  //   return <div>Loading...</div>;
+  // case "hasError":
+  //   throw userNameLoadable.contents;
+  // }
+};
+
+const AsyncUserInfo = () => {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <AsyncUserInfoHelper />
+    </React.Suspense>
+  );
 };
 
 export default AsyncUserInfo;

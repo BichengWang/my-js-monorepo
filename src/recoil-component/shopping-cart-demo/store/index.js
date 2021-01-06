@@ -1,6 +1,6 @@
 // @flow
 export { cart } from "./atoms";
-export { cartState, nodeInfoQuery } from "./selectors";
+export { cartState, currentTableInfoQuery } from "./selectors";
 export {
   useAddItem,
   useDecreaseItem,

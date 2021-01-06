@@ -1,6 +1,17 @@
 // @flow
-import { cart, node } from "./atoms";
-import { useRecoilState } from "recoil";
+import {
+  cart,
+  currentTableID,
+  recordAtomFamily,
+  tableAtomFamily,
+} from "./atoms";
+import { currentTableInfoQuery } from "./selectors";
+import {
+  useRecoilState,
+  useRecoilStateLoadable,
+  useSetRecoilState,
+} from "recoil";
+import React from "react";
 
 const cloneIndex = (items, id) => ({
   clone: items.map((item) => ({ ...item })),
@@ -42,11 +53,35 @@ export const useDecreaseItem = () => {
 };
 
 export const useAddRecord = () => {
-  const [table, setTable] = useRecoilState(node);
+  const [table, setTable] = useRecoilState(currentTableInfoQuery);
   return (newRecord) => {
-    table.records.push(newRecord);
-    setTable({
-      ...table,
-    });
+    console.log("table.records, ", JSON.stringify(table));
+    if (table.records) {
+      setTable({
+        records: [
+          ...table.records.map((item) => ({ ...item })),
+          { id: "new", value: newRecord },
+        ],
+      });
+      // setTable({
+      //   records: [...table.records, {id: "new", value: newRecord}],
+      // });
+    }
   };
+};
+
+export const useSetRecords = ({ id }) => {
+  const setRecord = useSetRecoilState(recordAtomFamily(id));
+  return (recordsVal) => {
+    setRecord(recordsVal);
+  };
+};
+
+export const useSetTable = (tableID) => {
+  const setTable = useSetRecoilState(tableAtomFamily(tableID));
+  return ({ recordIDs }) =>
+    setTable({
+      records: recordIDs,
+      tableID: tableID,
+    });
 };

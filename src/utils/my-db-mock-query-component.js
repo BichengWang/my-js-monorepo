@@ -30,15 +30,35 @@ export async function myDBQuery({ userID }) {
       records: [
         {
           id: 0,
-          value: "row0 record",
+          record: "row0 \t\trecord1cell1 \t\trecord1cell2 \t\trecord1cell3",
         },
         {
           id: 1,
-          value: "row1 record",
+          record: "row1 \t\trecord1cell1 \t\trecord1cell2 \t\trecord1cell3",
         },
         {
           id: 2,
-          value: "row2 record",
+          record: "row2 \t\trecord1cell1 \t\trecord1cell2 \t\trecord1cell3",
+        },
+      ],
+    },
+    node2: {
+      records: [
+        {
+          id: 0,
+          record: "row0 \t\trecord1cell1 \t\trecord1cell2",
+        },
+        {
+          id: 1,
+          record: "row1 \t\trecord2cell1 \t\trecord2cell2",
+        },
+        {
+          id: 2,
+          record: "row2 \t\trecord3cell1 \t\trecord3cell2",
+        },
+        {
+          id: 3,
+          record: "row2 \t\trecord4cell1 \t\trecord4cell2",
         },
       ],
     },

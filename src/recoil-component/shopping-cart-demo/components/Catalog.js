@@ -1,7 +1,7 @@
 // @flow
-import { cart, node } from "../store/atoms";
+import { cart, currentTableID } from "../store/atoms";
+import { currentTableInfoQuery, useAddItem, useAddRecord } from "../store";
 import { myDBQuery } from "../../../utils/my-db-mock-query-component";
-import { nodeInfoQuery, useAddItem, useAddRecord } from "../store";
 import {
   useRecoilCallback,
   useRecoilValue,
@@ -25,13 +25,14 @@ const ids = [
 
 const products = ids.map((id, index) => ({ id, price: index + 1 }));
 
-function RefreshTableInfo({ userID }) {
+function RefreshTableInfo() {
+  const nodeValue = useRecoilValue(currentTableID);
   const refreshUserInfo = useRecoilCallback(
-    ({ set }) => async (id) => {
-      const userInfo = await myDBQuery({ userID });
-      set(node, userInfo);
+    ({ set }) => async () => {
+      const response = await myDBQuery({ nodeValue });
+      set(currentTableInfoQuery, response);
     },
-    [userID]
+    [nodeValue]
   );
 
   useEffect(() => {
@@ -42,44 +43,28 @@ function RefreshTableInfo({ userID }) {
   return null;
 }
 
-function displayNode(node, addRecord) {
+const MyNode = () => {
+  const nodeInfoQuery = useRecoilValue(currentTableInfoQuery);
+  const addRecord = useAddRecord();
   return (
     <div>
-      {node.records &&
-        node.records.map((record, index) => (
-          <div className="record" key={record.id}>
-            <h4>
-              {record.id} + {record.value}
-            </h4>
-            <button
-              className="ui button positive mini"
-              onClick={() => {
-                addRecord("new row value");
-              }}
-            >
-              Add
-            </button>
-          </div>
-        ))}
+      {nodeInfoQuery.records.map((record, index) => (
+        <div className="record" key={record.id}>
+          <h4>
+            {record.id} + {record.value}
+          </h4>
+          <button
+            className="ui button positive mini"
+            onClick={() => {
+              addRecord("new row value");
+            }}
+          >
+            Add
+          </button>
+        </div>
+      ))}
     </div>
   );
-}
-
-const MyNode = () => {
-  const nodeInfoQueryLoadable = useRecoilValueLoadable(nodeInfoQuery());
-  const addRecord = useAddRecord();
-  switch (nodeInfoQueryLoadable.state) {
-    case "hasValue":
-      console.log(
-        "nodeInfoQueryLoadable.contents",
-        JSON.stringify(nodeInfoQueryLoadable.contents)
-      );
-      return displayNode(nodeInfoQueryLoadable.contents, addRecord);
-    case "loading":
-      return <div>Loading...</div>;
-    case "hasError":
-      throw nodeInfoQueryLoadable.contents;
-  }
 };
 
 const Catalog = () => {
@@ -106,7 +91,13 @@ const Catalog = () => {
       <div>
         <div className="catalog2">
           <div className="products2">
-            <MyNode />
+            {/*<button*/}
+            {/*	className="ui button positive mini"*/}
+            {/*	onClick={RefreshTableInfo}*/}
+            {/*>Refresh Node</button>*/}
+            <React.Suspense fallback={<div>Loading...</div>}>
+              <MyNode />
+            </React.Suspense>
           </div>
         </div>
       </div>
