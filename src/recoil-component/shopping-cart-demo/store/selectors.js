@@ -1,6 +1,7 @@
 // @flow
-import { cart } from "./atoms";
-import { selector } from "recoil";
+import { cart, currentTableID } from "./atoms";
+import { myDBQuery } from "../../../utils/my-db-mock-query-component";
+import { selector, selectorFamily, useRecoilState } from "recoil";
 
 export const cartState = selector({
   get: ({ get }) => {
@@ -12,4 +13,18 @@ export const cartState = selector({
     };
   },
   key: "cartState",
+});
+
+// node info query proxy
+export const currentTableInfoQuery = selectorFamily({
+  get: (tableID) => async () => {
+    const response = await myDBQuery({
+      userID: tableID,
+    });
+    if (response.error) {
+      throw response.error;
+    }
+    return response;
+  },
+  key: "currentTableInfoQuery",
 });
