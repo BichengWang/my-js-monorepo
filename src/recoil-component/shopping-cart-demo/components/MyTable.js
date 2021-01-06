@@ -5,35 +5,35 @@ import {
   recordAtomFamily,
   tableAtomFamily,
 } from "../store/atoms";
-import { currentTableInfoQuery, useAddItem, useAddRecord } from "../store";
+import { filterCurrentTableRecord } from "../store/selectors";
 import { myDBQuery } from "../../../utils/my-db-mock-query-component";
 import { Switch } from "react-router-dom";
+import { tableInfoQueryFamily, useAddItem, useAddRecord } from "../store";
 import {
   useRecoilCallback,
   useRecoilState,
   useRecoilValue,
   useRecoilValueLoadable,
+  useSetRecoilState,
 } from "recoil";
 import { useSetRecords, useSetTable } from "../store/hooks";
+import MyFilter from "./MyFilter";
 import MyRecord from "./MyRecord";
 import React, { useEffect, useState } from "react";
 
 const Table = () => {
   const [tableInputVal, setTableInputVal] = useState("node1");
-  const [currentTableIDVal, setCurrentTableIDVal] = useRecoilState(
-    currentTableID
-  );
-  const currentTableInfoQueryVal = useRecoilValue(
-    currentTableInfoQuery(currentTableIDVal)
-  );
+  const setCurrentTableIDVal = useSetRecoilState(currentTableID);
+  const filteredCurrentTableRecords = useRecoilValue(filterCurrentTableRecord);
 
   console.log(
     "currentTableInfoQueryVal, ",
-    JSON.stringify(currentTableInfoQueryVal)
+    JSON.stringify(filteredCurrentTableRecords)
   );
 
   return (
     <div>
+      <MyFilter />
       <div>
         Current Table ID:
         <input
@@ -52,8 +52,8 @@ const Table = () => {
         </button>
       </div>
       <div>
-        {currentTableInfoQueryVal.records &&
-          currentTableInfoQueryVal.records.map(({ id, record }, idx) => {
+        {filteredCurrentTableRecords &&
+          filteredCurrentTableRecords.map(({ id, record }, idx) => {
             console.log("record, ", JSON.stringify(record));
             return (
               <MyRecord index={idx} key={idx} recordID={id} val={record} />

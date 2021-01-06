@@ -1,5 +1,5 @@
 // @flow
-import { cart, currentTableID } from "./atoms";
+import { cart, currentTableID, tableFilter } from "./atoms";
 import { myDBQuery } from "../../../utils/my-db-mock-query-component";
 import { selector, selectorFamily, useRecoilState } from "recoil";
 
@@ -16,7 +16,7 @@ export const cartState = selector({
 });
 
 // node info query proxy
-export const currentTableInfoQuery = selectorFamily({
+export const tableInfoQueryFamily = selectorFamily({
   get: (tableID) => async () => {
     const response = await myDBQuery({
       userID: tableID,
@@ -27,4 +27,21 @@ export const currentTableInfoQuery = selectorFamily({
     return response;
   },
   key: "currentTableInfoQuery",
+});
+
+export const filterCurrentTableRecord = selector({
+  get: ({ get }) => {
+    const tableInfoQuery = get(tableInfoQueryFamily(get(currentTableID)));
+    const tableFilterValue = get(tableFilter);
+
+    if (tableInfoQuery.records && tableInfoQuery.records.length) {
+      const result = tableInfoQuery.records.filter(
+        ({record}) => record.includes(tableFilterValue.trim()) && record
+      );
+      console.log("filtered result, ", JSON.stringify(result));
+      return result;
+    }
+    return tableInfoQuery;
+  },
+  key: "filterCurrentTableRecord",
 });

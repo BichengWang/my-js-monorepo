@@ -1,7 +1,7 @@
 // @flow
 import { cart, currentTableID, recordAtomFamily } from "../store/atoms";
-import { currentTableInfoQuery, useAddItem, useAddRecord } from "../store";
 import { myDBQuery } from "../../../utils/my-db-mock-query-component";
+import { tableInfoQueryFamily, useAddItem, useAddRecord } from "../store";
 import {
   useRecoilCallback,
   useRecoilState,

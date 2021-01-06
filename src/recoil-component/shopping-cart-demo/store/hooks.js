@@ -5,7 +5,7 @@ import {
   recordAtomFamily,
   tableAtomFamily,
 } from "./atoms";
-import { currentTableInfoQuery } from "./selectors";
+import { tableInfoQueryFamily } from "./selectors";
 import {
   useRecoilState,
   useRecoilStateLoadable,
@@ -53,7 +53,7 @@ export const useDecreaseItem = () => {
 };
 
 export const useAddRecord = () => {
-  const [table, setTable] = useRecoilState(currentTableInfoQuery);
+  const [table, setTable] = useRecoilState(tableInfoQueryFamily);
   return (newRecord) => {
     console.log("table.records, ", JSON.stringify(table));
     if (table.records) {

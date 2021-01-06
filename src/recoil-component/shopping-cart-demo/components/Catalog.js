@@ -1,7 +1,7 @@
 // @flow
 import { cart, currentTableID } from "../store/atoms";
-import { currentTableInfoQuery, useAddItem, useAddRecord } from "../store";
 import { myDBQuery } from "../../../utils/my-db-mock-query-component";
+import { tableInfoQueryFamily, useAddItem, useAddRecord } from "../store";
 import {
   useRecoilCallback,
   useRecoilValue,
@@ -30,7 +30,7 @@ function RefreshTableInfo() {
   const refreshUserInfo = useRecoilCallback(
     ({ set }) => async () => {
       const response = await myDBQuery({ nodeValue });
-      set(currentTableInfoQuery, response);
+      set(tableInfoQueryFamily, response);
     },
     [nodeValue]
   );
@@ -44,7 +44,7 @@ function RefreshTableInfo() {
 }
 
 const MyNode = () => {
-  const nodeInfoQuery = useRecoilValue(currentTableInfoQuery);
+  const nodeInfoQuery = useRecoilValue(tableInfoQueryFamily);
   const addRecord = useAddRecord();
   return (
     <div>

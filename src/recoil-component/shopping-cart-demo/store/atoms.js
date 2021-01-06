@@ -20,3 +20,8 @@ export const tableAtomFamily = atomFamily({
   default: { records: [] },
   key: "tableAtomFamily",
 });
+
+export const tableFilter = atom({
+  default: "",
+  key: "tableFilter",
+});

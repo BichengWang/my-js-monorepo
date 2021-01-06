@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3dbd4b-0750-43e2-9da2-95ca94276102" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/MyRecord.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/MyTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/MyFilter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/Catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/Catalog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/shopping-cart-demo-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/shopping-cart-demo-component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/MyRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/MyRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/MyTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/components/MyTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/atoms.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/atoms.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/hooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/hooks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/shopping-cart-demo/store/selectors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/async-data-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/recoil-component/user-data-query-component/async-data-query-component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/my-db-mock-query-component.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
